@@ -1,0 +1,37 @@
+name: Export Global Skill Finder to Resource Guru
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  export-gsf2rg:
+    runs-on: ubuntu-latest
+    env:
+      GSF2RG_REPO: https://github.com/deptagency-dar/GSF2RG   # GSF2RG repository
+      GSF2RG_REF: main                # branch, tag, or SHA
+      GSF2RG_PATH: ./gsf2rg           # folder where it will be checked out
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '^24.2.0'
+
+      - name: Checkout GSF2RG
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.GSF2RG_REPO }}
+          ref: ${{ env.GSF2RG_REF }}
+          path: ${{ env.GSF2RG_PATH }}
+          token: ${{ secrets.GSF2RG_TOKEN }}
+
+      - name: Install dependencies
+        working-directory: ${{ env.GSF2RG_PATH }}
+        run: npm install
