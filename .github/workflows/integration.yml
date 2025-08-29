@@ -15,6 +15,17 @@ jobs:
       GSF2RG_REPO: deptagency-dar/GSF2RG   # GSF2RG repository
       GSF2RG_REF: main                # branch, tag, or SHA
       GSF2RG_PATH: ./gsf2rg           # folder where it will be checked out
+      JSON_FILE: ./data/test.json
+      MIN_SKILL_LEVEL: 3
+      RESOURCE_GURU_URL: https://api.resourceguruapp.com
+      RESOURCE_GURU_ACCOUNT_ID: deptsandbox
+      CLIENT_ID: ${{ secrets.RESOURCE_GURU_CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.RESOURCE_GURU_CLIENT_SECRET }}
+      REDIRECT_URI: http://127.0.0.1:5000/callback
+      AWS_REGION: us-east-1
+      RESOURCE_GURU_TOKEN_SECRET_NAME: dev/resource_guru/tokens
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
