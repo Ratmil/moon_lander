@@ -12,7 +12,7 @@ jobs:
   export-gsf2rg:
     runs-on: ubuntu-latest
     env:
-      GSF2RG_REPO: https://github.com/deptagency-dar/GSF2RG   # GSF2RG repository
+      GSF2RG_REPO: deptagency-dar/GSF2RG   # GSF2RG repository
       GSF2RG_REF: main                # branch, tag, or SHA
       GSF2RG_PATH: ./gsf2rg           # folder where it will be checked out
     steps:
