@@ -35,3 +35,7 @@ jobs:
       - name: Install dependencies
         working-directory: ${{ env.GSF2RG_PATH }}
         run: npm install
+
+      - name: Export from Global Skill Finder to Resource Guru
+        working-directory: ${{ env.GSF2RG_PATH }}
+        run: npm run dev
